@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="reaction_background_default">#1C1C1C</color>
+    <color name="reaction_background_selected">#3A3A3A</color>
+    <color name="reaction_text_default">#CCCCCC</color>
+    <color name="reaction_text_selected">#EAEAEA</color>
+    <color name="bottom_sheet">#1C1C1C</color>
+    <color name="recycler_background">#121212</color>
+
+    <color name="delegate_background">#1C1C1C</color>
+    <color name="date_color">#999999</color>
+    <color name="topic_color">#CCCCCC</color>
+    <color name="sender_name_color">#2A9D8F</color>
+
+    <color name="input_layout_background">#1E1E1E</color>
+    <color name="input_field_background">#282828</color>
+    <color name="attach_button">#464646</color>
+    <color name="send_button">#2A9D8F</color>
+    <color name="hint_color">#CCCCCC</color>
+    <color name="chat_toolbar_color">#2A9D8F</color>
+</resources>

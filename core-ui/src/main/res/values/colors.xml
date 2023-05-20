@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="error">#85FF0000</color>
+    <color name="shimmer_color">#B3B3B3</color>
+    <color name="toolbar_color">#1E1E1E</color>
+
+    <color name="online_color">#4AB54D</color>
+    <color name="idle_color">#FDD835</color>
+    <color name="offline_color">#FF0000</color>
+
+    <color name="no_photo">#1F000000</color>
+
+    <color name="default_hint">#808080</color>
+    <color name="hint_disabled">#50808080</color>
+</resources>

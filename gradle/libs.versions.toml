@@ -1,0 +1,94 @@
+[versions]
+android = "7.4.2"
+kotlin = "1.8.20"
+kotlinxserialization = "1.8.10"
+
+minSdk = "24"
+targetSdk = "33"
+compileSdk = "33"
+
+# Core
+ktx = "1.10.1"
+appCompat = "1.6.1"
+material = "1.9.0"
+fragment = "1.5.7"
+# Coroutines
+coroutines = "1.6.4"
+# Navigation
+cicerone = "7.1"
+# Network
+retrofit = "2.9.0"
+okhttp = "5.0.0-alpha.11"
+kotlinxserialization-json = "1.5.0"
+kotlinxserialization-converter = "1.0.0"
+# Room
+room = "2.5.1"
+# DI
+dagger = "2.44"
+# Test
+coreTesting = "2.2.0"
+junit-junit = "4.13.2"
+monitor = "1.6.1"
+orchestrator = "1.4.2"
+runner = "1.5.2"
+junit = "1.1.5"
+kaspresso = "1.5.1"
+espresso-core = "3.5.1"
+# Media
+glide = "4.15.1"
+# Other
+shimmer = "0.5.0"
+
+[libraries]
+# Core
+ktx = { module = "androidx.core:core-ktx", version.ref = "ktx" }
+appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
+# Coroutines
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+# Navigation
+cicerone = { module = "com.github.terrakok:cicerone", version.ref = "cicerone" }
+# Network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+logginginterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+kotlinxserialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxserialization-json" }
+kotlinxserialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinxserialization-converter" }
+# Room
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+# DI
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+# Test
+core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+junit-junit = { module = "junit:junit", version.ref = "junit-junit" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+kaspresso = { module = "com.kaspersky.android-components:kaspresso", version.ref = "kaspresso" }
+fragmentest = { module = "androidx.fragment:fragment-testing", version.ref = "fragment" }
+junit = { module = "androidx.test.ext:junit", version.ref = "junit" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+monitor = { module = "androidx.test:monitor", version.ref = "monitor" }
+orchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestrator" }
+runner = { module = "androidx.test:runner", version.ref = "runner" }
+# Media
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+# Other
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+
+[bundles]
+retrofit = ["retrofit", "logginginterceptor"]
+room = ["room-ktx", "room-runtime"]
+kotlinxserialization = ["kotlinxserialization-json", "kotlinxserialization-converter"]
+test-unit = ["core-testing", "junit-junit", "kotlinx-coroutines-test"]
+test-android = ["kaspresso", "espresso", "junit", "mockwebserver", "runner"]
+
+[plugins]
+application = { id = "com.android.application", version.ref = "android" }
+android-library = { id = "com.android.library", version.ref = "android" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinxserialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxserialization" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version = "1.5.31-1.0.0" }

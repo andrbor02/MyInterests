@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_message_text">Тут должно быть длинное сообщение. Тут должно быть длинное сообщение. Тут должно быть длинное сообщение. Тут должно быть длинное сообщение. Тут должно быть длинное сообщение.</string>
+    <string name="sample_name">Sample name</string>
+    <string name="sample_time">20:30</string>
+    <string name="default_stream">#Default Stream</string>
+    <string name="attach_extras_to_message">Attach extras to messageRemote</string>
+    <string name="send_message">Send messageRemote</string>
+    <string name="input_hint">Написать…</string>
+    <string name="topic_placeholder">Topic:</string>
+</resources>

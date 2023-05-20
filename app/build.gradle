@@ -1,0 +1,79 @@
+plugins {
+    alias libs.plugins.application
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlinxserialization
+    alias libs.plugins.kotlin.kapt
+}
+
+android {
+    namespace 'com.example.homework_2'
+    compileSdk libs.versions.compileSdk.get() as Integer
+
+    defaultConfig {
+        applicationId "com.example.homework_2"
+        minSdk libs.versions.minSdk.get() as Integer
+        targetSdk libs.versions.targetSdk.get() as Integer
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation(project(":core-utils"))
+    implementation(project(":core-utils-android"))
+    implementation(project(":core-ui"))
+    implementation(project(":core-network"))
+    implementation(project(":core-navigation"))
+    implementation(project(":core-context-provider"))
+
+    implementation(project(":feature-people-ui"))
+    implementation(project(":feature-profile-ui"))
+    implementation(project(":feature-channels-ui"))
+    implementation(project(":feature-chat-ui"))
+    implementation(project(":feature-authorization-ui"))
+
+    // Core
+    implementation libs.ktx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.fragment
+
+    // Navigation
+    implementation libs.cicerone
+
+    // DI
+    implementation libs.dagger
+    kapt libs.dagger.compiler
+
+    // Network
+    implementation libs.bundles.retrofit
+    implementation libs.bundles.kotlinxserialization
+
+    //Media
+    implementation libs.glide
+
+    // Other
+    implementation libs.shimmer
+
+    // Turn on if necessary
+//    debugImplementation "com.squareup.leakcanary:leakcanary-android:2.10"
+}

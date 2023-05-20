@@ -1,0 +1,3 @@
+package com.example.core_utils.di_helpers.component_holder
+
+interface DiComponent

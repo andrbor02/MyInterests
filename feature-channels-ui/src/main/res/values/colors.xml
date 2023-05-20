@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="first_topic_color">#2A9D8F</color>
+    <color name="second_topic_color">#E9C46A</color>
+
+    <color name="tab_text_color">#FAFAFA</color>
+    <color name="tab_indicator_color">#219653</color>
+    <color name="fab_color">#2A9D8F</color>
+    <color name="input_field_color">#282828</color>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="organization_zulip_com">organization.zulip.com</string>
+    <string name="enter_your_organization">Enter your organization:</string>
+    <string name="go">Go</string>
+    <string name="url_placeholder">URL: https://%1$s.zulipchat.com</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="log_in">Log in</string>
+</resources>

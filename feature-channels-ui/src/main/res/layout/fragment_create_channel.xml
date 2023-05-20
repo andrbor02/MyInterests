@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar_color"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/back_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="@string/back_to_channels"
+            android:padding="10dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="@string/create_new_channel"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/channel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:textColorHint="@drawable/hint_selector"
+        android:background="@drawable/input_field_background"
+        android:hint="@string/channel_name"
+        android:inputType="textCapSentences"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/channel_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@drawable/hint_selector"
+        android:layout_marginHorizontal="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/input_field_background"
+        android:hint="@string/channel_description"
+        android:inputType="textCapSentences|textMultiLine"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <CheckBox
+        android:id="@+id/public_history_cb"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="@string/has_public_history" />
+
+    <Button
+        android:id="@+id/create_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/create_channel" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="2dp"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_to_people">Back to people</string>
+    <string name="log_out">Log out</string>
+    <string name="user_avatar">User avatar</string>
+</resources>

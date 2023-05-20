@@ -1,0 +1,62 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+}
+
+android {
+    namespace 'com.example.feature_authorization_ui'
+    compileSdk libs.versions.compileSdk.get() as Integer
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get() as Integer
+        targetSdk libs.versions.targetSdk.get() as Integer
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+//  implementation(project(':feature-authorization-read'))
+    implementation(project(":core-utils"))
+    implementation(project(":core-utils-android"))
+    implementation(project(":core-navigation"))
+    implementation(project(":core-ui"))
+
+    // Core
+    implementation libs.ktx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.fragment
+
+    // DI
+    implementation libs.dagger
+    kapt libs.dagger.compiler
+
+    // Navigation
+    implementation libs.cicerone
+
+    //Media
+    implementation libs.glide
+
+    // Other
+    implementation libs.shimmer
+}
