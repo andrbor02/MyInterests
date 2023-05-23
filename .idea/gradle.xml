@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -12,11 +13,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core-context-provider" />
+            <option value="$PROJECT_DIR$/core-data" />
             <option value="$PROJECT_DIR$/core-navigation" />
             <option value="$PROJECT_DIR$/core-network" />
             <option value="$PROJECT_DIR$/core-ui" />
             <option value="$PROJECT_DIR$/core-utils" />
             <option value="$PROJECT_DIR$/core-utils-android" />
+            <option value="$PROJECT_DIR$/feature-authorization" />
             <option value="$PROJECT_DIR$/feature-authorization-ui" />
             <option value="$PROJECT_DIR$/feature-channels-ui" />
             <option value="$PROJECT_DIR$/feature-chat" />

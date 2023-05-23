@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 import javax.inject.Inject
 
-internal class NetworkResponseAdapterFactory @Inject constructor() : CallAdapter.Factory() {
+class NetworkResponseAdapterFactory @Inject constructor() : CallAdapter.Factory() {
 
     override fun get(
         returnType: Type,

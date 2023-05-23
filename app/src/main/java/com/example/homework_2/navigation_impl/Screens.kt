@@ -5,10 +5,14 @@ import com.example.feature_channels_ui.impl.presentation.ui.ChannelsTabsFragment
 import com.example.feature_chat_ui.impl.presentation.ui.ChatFragment
 import com.example.feature_people_ui.impl.presentation.ui.PeopleFragment
 import com.example.feature_profile_ui.impl.presentation.ui.ProfileFragment
+import com.example.homework_2.presentation.BottomNavigationFragment
+import com.example.homework_2.presentation.MainContainerFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
     fun MainContainer() = FragmentScreen { MainContainerFragment() }
+
+    fun BottomNavigation() = FragmentScreen { BottomNavigationFragment() }
     fun AuthorizationContainer() = FragmentScreen { AuthorizationContainerFragment() }
 
     fun Channels() = FragmentScreen { ChannelsTabsFragment() }

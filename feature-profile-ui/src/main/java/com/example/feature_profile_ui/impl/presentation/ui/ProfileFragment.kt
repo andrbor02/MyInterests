@@ -69,6 +69,7 @@ class ProfileFragment : Fragment() {
             binding.toolbar.hide()
             viewModel.onEvent(Event.Ui.LoadId(myId))
         } else {
+            binding.logoutBtn.hide()
             viewModel.onEvent(Event.Ui.LoadId(profileId ?: DEFAULT_PROFILE_ID))
         }
     }

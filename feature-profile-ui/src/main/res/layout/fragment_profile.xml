@@ -111,5 +111,14 @@
             android:textColor="@color/online_color"
             android:textSize="16sp"
             tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_marginTop="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out"
+            android:background="@drawable/logout_background"/>
     </LinearLayout>
+
 </LinearLayout>

@@ -1,8 +1,14 @@
 package com.example.core_network.impl.di
 
 
+import com.example.core_network.impl.authorization.AuthorizationChecker
+import com.example.core_network.impl.authorization.AuthorizationCheckerImpl
+import com.example.core_network.impl.retrofit.BaseUrlHolder
+import com.example.core_network.impl.retrofit.CredentialsHolder
 import com.example.core_network.impl.retrofit.NetworkClient
 import com.example.core_network.impl.retrofit.call_adapter.NetworkResponseAdapterFactory
+import com.example.core_network.impl.retrofit.impl.BaseUrlHolderImpl
+import com.example.core_network.impl.retrofit.impl.CredentialsHolderImpl
 import com.example.core_network.impl.retrofit.impl.RetrofitClientImpl
 import com.example.core_network.impl.retrofit.interceptors.AuthInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -30,26 +36,17 @@ internal class NetworkModule {
     @Provides
     @Singleton
     fun provideNetworkClient(
-        @BaseUrl
-        baseUrl: String,
+        baseUrlHolder: BaseUrlHolder,
         callAdapterFactory: CallAdapter.Factory,
         okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(baseUrlHolder.getUrl())
             .addCallAdapterFactory(callAdapterFactory)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
-    }
-
-    @Provides
-    @Singleton
-    @BaseUrl
-    fun provideBaseUrl(
-    ): String {
-        return "https://andrbor.zulipchat.com/api/v1/"
     }
 
     @Provides
@@ -77,10 +74,17 @@ internal class NetworkModule {
         @Singleton
         fun provideOkHttpClient(
             interceptors: Set<@JvmSuppressWildcards Interceptor>,
+            credentialsHolder: CredentialsHolder,
         ): OkHttpClient {
+            val isAuthorized = credentialsHolder.getApiKey().isNotBlank()
+
             return OkHttpClient.Builder()
                 .apply {
                     interceptors.forEach { interceptor ->
+                        if (interceptor is AuthInterceptor && isAuthorized) {
+                            println("dobavil")
+                            addInterceptor(interceptor)
+                        }
                         addInterceptor(interceptor)
                     }
                 }
@@ -99,8 +103,8 @@ internal class NetworkModule {
         @IntoSet
         @Provides
         @Singleton
-        fun provideAuthInterceptor(): Interceptor {
-            return AuthInterceptor()
+        fun provideAuthInterceptor(authInterceptor: AuthInterceptor): Interceptor {
+            return authInterceptor
         }
     }
 
@@ -108,6 +112,18 @@ internal class NetworkModule {
     interface Bindings {
         @Binds
         @Singleton
-        fun provideNetworkClient(retrofitClientImpl: RetrofitClientImpl): NetworkClient
+        fun bindNetworkClient(retrofitClientImpl: RetrofitClientImpl): NetworkClient
+
+        @Binds
+        @Singleton
+        fun bindBaseUrlHolder(baseUrlHolderImpl: BaseUrlHolderImpl): BaseUrlHolder
+
+        @Binds
+        @Singleton
+        fun bindCredentialsHolder(credentialsHolderImpl: CredentialsHolderImpl): CredentialsHolder
+
+        @Binds
+        @Singleton
+        fun bindAuthorizationChecker(authorizationCheckerImpl: AuthorizationCheckerImpl): AuthorizationChecker
     }
 }

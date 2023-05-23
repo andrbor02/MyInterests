@@ -1,33 +1,32 @@
 package com.example.feature_authorization_ui.api
 
 import com.example.core_navigation.impl.di.NavigationComponentHolder
+import com.example.core_navigation.impl.routers.RouterForAuthorization
 import com.example.core_navigation.impl.routers.RouterForPeople
+import com.example.feature_authorization.impl.domain.usecase.CheckOrganizationUseCase
+import com.example.feature_authorization.impl.di.AuthorizationComponentHolder
+import com.example.feature_authorization.impl.domain.usecase.FetchApiKeyUseCase
 
 internal interface AuthorizationUiDependencies {
-    fun router(): RouterForPeople
+    fun router(): RouterForAuthorization
 
-//    fun getPeopleUseCase(): GetPeopleUseCase
-//
-//    fun updatePeopleUseCase(): UpdatePeopleUseCase
-//
-//    fun getSearchPeopleUseCase(): SearchPeopleUseCase
+    fun checkOrganizationUseCase(): CheckOrganizationUseCase
+
+    fun fetchApiKeyUseCase(): FetchApiKeyUseCase
 
     class Impl : AuthorizationUiDependencies {
 
-        override fun router(): RouterForPeople {
-            return NavigationComponentHolder.get().routerForPeople()
+        override fun router(): RouterForAuthorization {
+            return NavigationComponentHolder.get().routerForAuthorization()
         }
 
-//        override fun getPeopleUseCase(): GetPeopleUseCase {
-//            return AuthorizationComponentHolder.get().getPeopleUseCase()
-//        }
-//
-//        override fun updatePeopleUseCase(): UpdatePeopleUseCase {
-//            return AuthorizationComponentHolder.get().updatePeopleUseCase()
-//        }
-//
-//        override fun getSearchPeopleUseCase(): SearchPeopleUseCase {
-//            return AuthorizationComponentHolder.get().searchPeopleUseCase()
-//        }
+        override fun checkOrganizationUseCase(): CheckOrganizationUseCase {
+            return AuthorizationComponentHolder.get().checkOrganizationUseCase()
+        }
+
+        override fun fetchApiKeyUseCase(): FetchApiKeyUseCase {
+            return AuthorizationComponentHolder.get().fetchApiKeyUseCase()
+        }
+
     }
 }

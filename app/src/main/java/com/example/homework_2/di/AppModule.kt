@@ -3,9 +3,11 @@ package com.example.homework_2.di
 import com.example.core_navigation.impl.routers.RouterForAuthorization
 import com.example.core_navigation.impl.routers.RouterForChannels
 import com.example.core_navigation.impl.routers.RouterForPeople
+import com.example.core_navigation.impl.routers.RouterForProfile
 import com.example.homework_2.navigation_impl.feature_routers.RouterForAuthorizationImpl
 import com.example.homework_2.navigation_impl.feature_routers.RouterForChannelsImpl
 import com.example.homework_2.navigation_impl.feature_routers.RouterForPeopleImpl
+import com.example.homework_2.navigation_impl.feature_routers.RouterForProfileImpl
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
@@ -55,6 +57,10 @@ class AppModule {
             @Singleton
             @Binds
             fun bindRouterForAuthorization(routerForAuthorizationImpl: RouterForAuthorizationImpl): RouterForAuthorization
+
+            @Singleton
+            @Binds
+            fun bindRouterForProfile(routerForProfileImpl: RouterForProfileImpl): RouterForProfile
         }
     }
 }
