@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
+    android:clickable="true"
+    android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:clickable="true"
-    tools:context="com.example.feature_profile_ui.impl.presentation.ui.ProfileFragment"
-    android:focusable="true">
+    tools:context="com.example.feature_profile_ui.impl.presentation.ui.ProfileFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -53,8 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical"
         android:layout_marginHorizontal="50dp"
+        android:orientation="vertical"
         android:visibility="gone">
 
         <TextView
@@ -62,10 +62,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
+            android:layout_marginBottom="50dp"
             android:gravity="center_horizontal"
             android:text="@string/error"
             android:textColor="@color/error"
-            android:layout_marginBottom="50dp"
             android:textSize="24sp" />
 
         <Button
@@ -114,11 +114,11 @@
 
         <Button
             android:id="@+id/logout_btn"
-            android:layout_marginTop="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/log_out"
-            android:background="@drawable/logout_background" />
+            android:layout_marginTop="150dp"
+            android:background="@drawable/logout_background"
+            android:text="@string/log_out" />
     </LinearLayout>
 
 </LinearLayout>

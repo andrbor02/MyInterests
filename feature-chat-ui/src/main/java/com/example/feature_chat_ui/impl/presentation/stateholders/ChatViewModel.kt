@@ -2,7 +2,7 @@ package com.example.feature_chat_ui.impl.presentation.stateholders
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.example.core_utils.SERVICE_LOG
+import com.example.core_utils.common_helpers.SERVICE_LOG
 import com.example.core_utils.common_helpers.replaceItem
 import com.example.core_utils.common_helpers.runCatchingNonCancellation
 import com.example.core_utils.common_helpers.updateSetByReplacing

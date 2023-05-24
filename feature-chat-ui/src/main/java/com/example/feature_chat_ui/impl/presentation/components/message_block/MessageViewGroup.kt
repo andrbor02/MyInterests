@@ -13,7 +13,7 @@ import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import com.bumptech.glide.Glide
-import com.example.core_utils.SERVICE_LOG
+import com.example.core_utils.common_helpers.SERVICE_LOG
 import com.example.core_utils_android.extensions.marginHorizontal
 import com.example.core_utils_android.extensions.marginVertical
 import com.example.core_utils_android.extensions.mutableMarginBottom

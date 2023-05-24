@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.core_data.impl.di.DataComponentHolder
+import com.example.core_data.impl.di.CoreDataComponentHolder
 import com.example.core_utils.common_helpers.lazyUnsafe
 import com.example.homework_2.App
 import com.example.homework_2.R
@@ -33,7 +33,7 @@ class MainContainerFragment : Fragment() {
         AppNavigator(requireActivity(), R.id.main_container)
     }
 
-    private val accountController = DataComponentHolder.get().accountController()
+    private val accountController = CoreDataComponentHolder.get().accountController()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

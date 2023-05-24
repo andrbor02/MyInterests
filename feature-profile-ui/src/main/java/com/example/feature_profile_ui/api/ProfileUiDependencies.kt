@@ -1,7 +1,8 @@
 package com.example.feature_profile_ui.api
 
 import com.example.core_data.impl.account.AccountController
-import com.example.core_data.impl.di.DataComponentHolder
+import com.example.core_data.impl.account.AccountPersister
+import com.example.core_data.impl.di.CoreDataComponentHolder
 import com.example.core_navigation.impl.di.NavigationComponentHolder
 import com.example.core_navigation.impl.routers.RouterForProfile
 import com.example.feature_profile.impl.di.ProfileComponentHolder
@@ -13,6 +14,8 @@ internal interface ProfileUiDependencies {
 
     fun accountController(): AccountController
 
+    fun accountPersister(): AccountPersister
+
     fun routerForProfile(): RouterForProfile
 
     class Impl : ProfileUiDependencies {
@@ -21,7 +24,11 @@ internal interface ProfileUiDependencies {
         }
 
         override fun accountController(): AccountController {
-            return DataComponentHolder.get().accountController()
+            return CoreDataComponentHolder.get().accountController()
+        }
+
+        override fun accountPersister(): AccountPersister {
+            return CoreDataComponentHolder.get().accountPersister()
         }
 
         override fun routerForProfile(): RouterForProfile {

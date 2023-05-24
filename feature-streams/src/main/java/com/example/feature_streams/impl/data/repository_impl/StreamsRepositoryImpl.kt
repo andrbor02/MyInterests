@@ -1,8 +1,8 @@
 package com.example.feature_streams.impl.data.repository_impl
 
+import com.example.core_data.impl.account.AccountPersister
 import com.example.core_utils.common_helpers.isNotNull
 import com.example.core_utils.common_helpers.runCatchingNonCancellation
-import com.example.core_utils.myEmail
 import com.example.feature_streams.impl.data.datasource.local.StreamsLocalDataSource
 import com.example.feature_streams.impl.data.datasource.remote.StreamsRemoteDataSource
 import com.example.feature_streams.impl.data.datasource.remote.model.streams.created.CreatedStreamResponse
@@ -34,6 +34,7 @@ internal class StreamsRepositoryImpl @Inject constructor(
     private val streamsLocalToDomainMapper: StreamLocalToDomainMapper,
     private val topicRemoteToLocalMapper: TopicRemoteToLocalMapper,
     private val topicRemoteToDomainMapper: TopicRemoteToDomainMapper,
+    private val accountPersister: AccountPersister,
 ) : StreamsRepository {
     override fun getStreams(): Flow<List<StreamModel>> =
         streamsLocalDataSource.getAllStreams().map { streamsLocal ->
@@ -118,11 +119,13 @@ internal class StreamsRepositoryImpl @Inject constructor(
     }
 
     override suspend fun createStream(streamInfo: StreamInfo): Boolean {
+        val myEmail = accountPersister.getUser().email
+
         val createSuccessful = runCatchingNonCancellation {
             streamsRemoteDataSource.createStream(streamInfo)
                 .map { createdStream: CreatedStreamResponse ->
-                    val isSubscribed = createdStream.subscribed[EMAIL].isNotNull
-                    val isAlreadySubscribed = createdStream.alreadySubscribed[EMAIL].isNotNull
+                    val isSubscribed = createdStream.subscribed[myEmail].isNotNull
+                    val isAlreadySubscribed = createdStream.alreadySubscribed[myEmail].isNotNull
 
                     if (isSubscribed) {
                         true
@@ -141,9 +144,5 @@ internal class StreamsRepositoryImpl @Inject constructor(
             },
             onFailure = { return false }
         )
-    }
-
-    companion object {
-        private const val EMAIL = myEmail
     }
 }

@@ -1,18 +1,20 @@
 package com.example.feature_profile_ui.impl.presentation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.example.core_data.impl.account.AccountPersister
 import com.example.core_ui.R
 import com.example.core_utils.common_helpers.lazyUnsafe
 import com.example.core_utils.mvi_helpers.ScreenState
-import com.example.core_utils.myId
 import com.example.core_utils_android.extensions.collectWhenStarted
 import com.example.core_utils_android.extensions.hide
 import com.example.core_utils_android.extensions.show
@@ -37,6 +39,9 @@ class ProfileFragment : Fragment() {
     private val viewModel: ProfileViewModel by viewModels {
         profileViewModelFactory
     }
+
+    @Inject
+    lateinit var accountPersister: AccountPersister
 
     private var profileId: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +72,9 @@ class ProfileFragment : Fragment() {
     private fun isMyProfile() {
         if (profileId == null) {
             binding.toolbar.hide()
-            viewModel.onEvent(Event.Ui.LoadId(myId))
+            viewModel.onEvent(Event.Ui.LoadId(
+                accountPersister.getUser().userId
+            ))
         } else {
             binding.logoutBtn.hide()
             viewModel.onEvent(Event.Ui.LoadId(profileId ?: DEFAULT_PROFILE_ID))

@@ -1,8 +1,8 @@
 package com.example.feature_chat.impl.data.datasource.utils.reactions
 
 import android.util.Log
-import com.example.core_utils.SERVICE_LOG
-import com.example.core_utils.myId
+import com.example.core_data.impl.account.AccountPersister
+import com.example.core_utils.common_helpers.SERVICE_LOG
 import com.example.feature_chat.impl.data.datasource.remote.model.reactions.ReactionRemote
 import com.example.feature_chat.impl.domain.model.reactions.EmojiNCU
 import com.example.feature_chat.impl.domain.model.reactions.ReactionModel
@@ -12,7 +12,9 @@ internal interface ReactionRemoteToDomainMapper {
     operator fun invoke(reactionRemotes: List<ReactionRemote>): List<ReactionModel>
 }
 
-internal class ReactionRemoteToDomainMapperImpl @Inject constructor() :
+internal class ReactionRemoteToDomainMapperImpl @Inject constructor(
+    private val accountPersister: AccountPersister,
+) :
     ReactionRemoteToDomainMapper {
     override operator fun invoke(reactionRemotes: List<ReactionRemote>): List<ReactionModel> {
         val reactionModelList = mutableListOf<ReactionModel>()
@@ -31,7 +33,7 @@ internal class ReactionRemoteToDomainMapperImpl @Inject constructor() :
             val elementNotContains = (existingReactionIndex == -1)
 
             if (elementNotContains) {
-                val isClicked = (reaction.userId == myId)
+                val isClicked = (reaction.userId == accountPersister.getUser().userId)
                 reactionModelList.add(
                     ReactionModel(
                         emojiNCU = EmojiNCU(
@@ -45,7 +47,7 @@ internal class ReactionRemoteToDomainMapperImpl @Inject constructor() :
             } else {
                 val existingReaction = reactionModelList[existingReactionIndex]
 
-                if (reaction.userId == myId) {
+                if (reaction.userId == accountPersister.getUser().userId) {
                     reactionModelList[existingReactionIndex] = existingReaction.copy(
                         count = existingReaction.count + 1,
                         isClicked = true

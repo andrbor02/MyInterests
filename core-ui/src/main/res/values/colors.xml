@@ -11,7 +11,7 @@
     <color name="idle_color">#FDD835</color>
     <color name="offline_color">#FF0000</color>
 
-    <color name="no_photo">#1F000000</color>
+    <color name="no_photo">#989898</color>
 
     <color name="default_hint">#808080</color>
     <color name="hint_disabled">#50808080</color>
