@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.core_network.impl.di.NetworkComponentHolder
+import com.example.core_data.impl.di.DataComponentHolder
 import com.example.core_utils.common_helpers.lazyUnsafe
 import com.example.homework_2.App
 import com.example.homework_2.R
@@ -33,7 +33,7 @@ class MainContainerFragment : Fragment() {
         AppNavigator(requireActivity(), R.id.main_container)
     }
 
-    private val authorizationChecker = NetworkComponentHolder.get().authorizationChecker()
+    private val accountController = DataComponentHolder.get().accountController()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,7 @@ class MainContainerFragment : Fragment() {
         App.INSTANCE.appComponent.injectToMainContainerFragment(this)
 
         if (savedInstanceState == null) {
-            if (authorizationChecker.isAuthorized()) {
+            if (accountController.isAuthorized()) {
                 globalRouter.newRootScreen(Screens.BottomNavigation())
             } else {
                 globalRouter.newRootScreen(Screens.AuthorizationContainer())

@@ -41,7 +41,7 @@ dependencies {
     implementation(project(":core-utils"))
     implementation(project(":core-utils-android"))
     implementation(project(":core-ui"))
-    implementation(project(":core-network"))
+    implementation(project(":core-data"))
     implementation(project(":core-navigation"))
     implementation(project(":core-context-provider"))
 

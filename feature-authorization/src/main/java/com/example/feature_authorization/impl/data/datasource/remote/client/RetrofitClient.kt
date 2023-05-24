@@ -1,6 +1,5 @@
 package com.example.feature_authorization.impl.data.datasource.remote.client
 
-import com.example.core_network.impl.retrofit.BaseUrlHolder
 import com.example.feature_authorization.impl.data.datasource.remote.api.AuthorizationApi
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
@@ -8,7 +7,6 @@ import okhttp3.OkHttpClient
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import javax.inject.Inject
 
 internal class RetrofitClient @AssistedInject constructor(
     @Assisted baseUrl: String,

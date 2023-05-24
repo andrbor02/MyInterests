@@ -2,12 +2,9 @@ package com.example.feature_authorization_ui.impl.presentation.stateholders.acco
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core_utils.mvi_helpers.ScreenState
 import com.example.feature_authorization.impl.domain.usecase.FetchApiKeyUseCase
 import com.example.feature_authorization_ui.impl.presentation.mvi.account.AccountReducer
 import com.example.feature_authorization_ui.impl.presentation.mvi.account.AccountScreenState
-import com.example.feature_authorization_ui.impl.presentation.mvi.organization.OrganizationReducer
-import com.example.feature_authorization_ui.impl.presentation.stateholders.organization.OrganizationViewModel
 import javax.inject.Inject
 
 class AccountViewModelFactory @Inject constructor(

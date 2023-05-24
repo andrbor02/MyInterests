@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/log_out"
-            android:background="@drawable/logout_background"/>
+            android:background="@drawable/logout_background" />
     </LinearLayout>
 
 </LinearLayout>

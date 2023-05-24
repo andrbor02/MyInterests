@@ -1,7 +1,6 @@
 package com.example.feature_authorization_ui.impl.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,15 +14,12 @@ import com.example.core_utils_android.extensions.enable
 import com.example.core_utils_android.extensions.hide
 import com.example.core_utils_android.extensions.show
 import com.example.feature_authorization.impl.domain.model.AccountValidationException
-import com.example.feature_authorization_ui.R
 import com.example.feature_authorization_ui.databinding.FragmentAccountBinding
 import com.example.feature_authorization_ui.impl.di.AuthorizationUiComponentHolder
 import com.example.feature_authorization_ui.impl.presentation.mvi.account.AccountEvent
 import com.example.feature_authorization_ui.impl.presentation.mvi.account.AccountScreenState
 import com.example.feature_authorization_ui.impl.presentation.stateholders.account.AccountViewModel
 import com.example.feature_authorization_ui.impl.presentation.stateholders.account.AccountViewModelFactory
-import com.github.terrakok.cicerone.Navigator
-import com.github.terrakok.cicerone.androidx.AppNavigator
 import javax.inject.Inject
 
 class AccountFragment : Fragment() {
@@ -63,16 +59,6 @@ class AccountFragment : Fragment() {
 
     private fun initListeners() {
         with(binding) {
-//            organizationInput.doOnTextChanged { text, _, _, count ->
-//                showInitial()
-//                if (count > 0) {
-//                    urlTv.show()
-//                } else {
-//                    urlTv.hide()
-//                }
-//                urlTv.text = getString(R.string.url_placeholder, text)
-//            }
-
             loginBtn.setOnClickListener {
                 val email = emailInput.text.toString()
                 val password = passwordInput.text.toString()

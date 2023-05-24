@@ -42,10 +42,10 @@ internal class AuthorizationModule {
         fun bindFetchApiKeyUseCase(fetchApiKeyUseCaseImpl: FetchApiKeyUseCaseImpl): FetchApiKeyUseCase
 
         @Binds
-        fun bindPeopleRepository(peopleRepositoryImpl: AuthorizationRepositoryImpl): AuthorizationRepository
+        fun bindAuthorizationRepository(peopleRepositoryImpl: AuthorizationRepositoryImpl): AuthorizationRepository
 
         @Binds
-        fun bindUsersRemoteDataSource(authorizationRemoteDatasourceImpl: AuthorizationRemoteDatasourceImpl): AuthorizationRemoteDataSource
+        fun bindAuthorizationRemoteDataSource(authorizationRemoteDatasourceImpl: AuthorizationRemoteDatasourceImpl): AuthorizationRemoteDataSource
 
         @Binds
         fun bindRelevantOrganizationChecker(relevantOrganizationCheckerImpl: RelevantOrganizationCheckerImpl): RelevantOrganizationChecker
@@ -53,27 +53,6 @@ internal class AuthorizationModule {
 
     @Module
     class NetworkClient {
-
-//        @Provides
-//        fun provideAuthorizationApi(
-//            retrofit: Retrofit,
-//        ): AuthorizationApi {
-//            return retrofit.create(AuthorizationApi::class.java)
-//        }
-
-//        @Provides
-//        fun provideNetworkClient(
-//            baseUrlHolder: BaseUrlHolder,
-//            callAdapterFactory: CallAdapter.Factory,
-//            okHttpClient: OkHttpClient,
-//            converterFactory: Converter.Factory,
-//        ): Retrofit {
-//            return Retrofit.Builder()
-//                .baseUrl(baseUrlHolder.g)
-//                .client(okHttpClient)
-//                .addConverterFactory(converterFactory)
-//                .build()
-//        }
 
         @Provides
         fun provideConverterFactory(

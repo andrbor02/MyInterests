@@ -5,6 +5,8 @@ import com.example.feature_authorization.impl.domain.model.AccountValidationExce
 sealed class AccountScreenState {
     object Init : AccountScreenState()
     object Loading : AccountScreenState()
-    data class Error(val accountValidationException: AccountValidationException) : AccountScreenState()
+    data class Error(val accountValidationException: AccountValidationException) :
+        AccountScreenState()
+
     object Success : AccountScreenState()
 }

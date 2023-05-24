@@ -6,6 +6,7 @@ import com.example.feature_profile.impl.domain.model.ProfileModel
 internal sealed class Event {
     sealed class Ui : Event() {
         class LoadId(val id: Int) : Ui()
+        object Logout : Ui()
     }
 
     sealed class Internal : Event() {

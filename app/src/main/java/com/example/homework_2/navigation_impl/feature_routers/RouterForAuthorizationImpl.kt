@@ -9,6 +9,6 @@ class RouterForAuthorizationImpl @Inject constructor(
     private val router: Router,
 ) : RouterForAuthorization {
     override fun navigateToMain() {
-        router.newRootScreen(Screens.MainContainer())
+        router.navigateTo(Screens.BottomNavigation())
     }
 }

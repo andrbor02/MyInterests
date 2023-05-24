@@ -20,13 +20,13 @@ internal class AuthInterceptor @Inject constructor(
     }
 
     private fun getBasicCredentials() = Credentials.basic(
-            credentialsHolder.getEmail(),
-            credentialsHolder.getApiKey()
-        )
+        credentialsHolder.getEmail(),
+        credentialsHolder.getApiKey()
+    )
 
 
     private companion object {
-//        const val EMAIL = "andrbor02@yandex.ru"
+        //        const val EMAIL = "andrbor02@yandex.ru"
 //        const val API_KEY = "AIJrViRoR4fRvXwjitgTbCDrtu9dFz3H"
 //
         const val AUTHORIZATION = "Authorization"
