@@ -1,6 +1,8 @@
 package com.example.feature_profile_ui.impl.presentation.stateholders
 
 import androidx.lifecycle.viewModelScope
+import com.example.core_data.impl.account.AccountController
+import com.example.core_navigation.impl.routers.RouterForProfile
 import com.example.core_utils.common_helpers.runCatchingNonCancellation
 import com.example.core_utils_android.mvi.MviViewModel
 import com.example.feature_profile.impl.domain.usecase.GetProfileUseCase
@@ -13,6 +15,8 @@ import kotlinx.coroutines.launch
 
 internal class ProfileViewModel(
     private val getProfileUseCase: GetProfileUseCase,
+    private val accountController: AccountController,
+    private val routerForProfile: RouterForProfile,
     initialState: ProfileScreenState,
     reducer: Reducer,
 ) : MviViewModel<ProfileScreenState, Event, Event.Ui, Event.Internal, Command>(
@@ -23,6 +27,7 @@ internal class ProfileViewModel(
     override suspend fun actor(command: Command) {
         when (command) {
             is Command.LoadValue -> loadProfile(command.id)
+            Command.Logout -> logout()
         }
     }
 
@@ -41,5 +46,10 @@ internal class ProfileViewModel(
                 }
             )
         }
+    }
+
+    private fun logout() {
+        accountController.clearUser()
+        routerForProfile.navigateToMain()
     }
 }

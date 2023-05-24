@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 internal class CheckOrganizationUseCaseImpl @Inject constructor(
     private val authorizationRepository: AuthorizationRepository,
-): CheckOrganizationUseCase{
+) : CheckOrganizationUseCase {
     override suspend fun invoke(organization: String): Boolean {
         return authorizationRepository.checkOrganization(organization)
     }

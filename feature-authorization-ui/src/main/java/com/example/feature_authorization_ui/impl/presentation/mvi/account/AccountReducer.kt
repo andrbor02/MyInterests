@@ -1,6 +1,5 @@
 package com.example.feature_authorization_ui.impl.presentation.mvi.account
 
-import com.example.core_utils.mvi_helpers.ScreenState
 import com.example.core_utils_android.mvi.MviReducer
 
 internal class AccountReducer :

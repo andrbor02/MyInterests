@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.core_utils.common_helpers.lazyUnsafe
 import com.example.core_utils.mvi_helpers.ScreenState
@@ -15,7 +14,6 @@ import com.example.core_utils_android.extensions.disable
 import com.example.core_utils_android.extensions.enable
 import com.example.core_utils_android.extensions.hide
 import com.example.core_utils_android.extensions.show
-import com.example.feature_authorization.impl.domain.usecase.CheckOrganizationUseCase
 import com.example.feature_authorization_ui.R
 import com.example.feature_authorization_ui.databinding.FragmentOrganizationBinding
 import com.example.feature_authorization_ui.impl.di.AuthorizationUiComponentHolder

@@ -9,9 +9,19 @@ internal interface RelevantOrganizationChecker {
 
 internal class RelevantOrganizationCheckerImpl @Inject constructor() : RelevantOrganizationChecker {
     override fun invoke(authorizationResponse: AuthorizationResponse): Boolean {
-//        if (authorizationResponse.)
+        val isCompatible = !authorizationResponse.isIncompatible
 
+        return (isCompatible
+                && authorizationResponse.emailAuthEnabled
+                && hasRelevantAuthMethods(authorizationResponse))
+    }
 
-        return true
+    private fun hasRelevantAuthMethods(authorizationResponse: AuthorizationResponse) =
+        authorizationResponse.authenticationMethods.get(EMAIL) == true
+                && authorizationResponse.authenticationMethods.get(PASSWORD) == true
+
+    companion object {
+        private const val EMAIL = "email"
+        private const val PASSWORD = "password"
     }
 }

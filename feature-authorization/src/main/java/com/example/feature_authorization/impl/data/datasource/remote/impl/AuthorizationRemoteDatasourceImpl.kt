@@ -1,8 +1,6 @@
 package com.example.feature_authorization.impl.data.datasource.remote.impl
 
-import android.util.Log
 import com.example.core_network.impl.retrofit.BaseUrlHolder
-import com.example.core_utils.common_helpers.isNull
 import com.example.feature_authorization.impl.data.datasource.remote.AuthorizationRemoteDataSource
 import com.example.feature_authorization.impl.data.datasource.remote.api.AuthorizationApi
 import com.example.feature_authorization.impl.data.datasource.remote.client.RetrofitClientFactory
@@ -25,7 +23,6 @@ internal class AuthorizationRemoteDatasourceImpl @Inject constructor(
     }
 
     override suspend fun fetchApiKey(email: String, password: String): ApiKeyResponse {
-        Log.e("MMM", "tut")
         return authorizationApi!!.fetchApiKey(email, password).handle()
     }
 

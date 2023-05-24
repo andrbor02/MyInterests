@@ -6,7 +6,7 @@ import com.example.core_context_provider.impl.di.ContextProviderComponentHolder
 interface DataDependencies {
     fun context(): Context
 
-    class Impl: DataDependencies {
+    class Impl : DataDependencies {
         override fun context(): Context {
             return ContextProviderComponentHolder.get().applicationContext()
         }

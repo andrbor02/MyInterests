@@ -23,6 +23,8 @@ kotlinxserialization-json = "1.5.0"
 kotlinxserialization-converter = "1.0.0"
 # Room
 room = "2.5.1"
+# Data
+crypto = "1.1.0-alpha06"
 # DI
 dagger = "2.44"
 # Test
@@ -58,6 +60,8 @@ kotlinxserialization-converter = { module = "com.jakewharton.retrofit:retrofit2-
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+# Data
+crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" }
 # DI
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }

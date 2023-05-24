@@ -82,6 +82,9 @@ class ProfileFragment : Fragment() {
             tryAgainBut.setOnClickListener {
                 viewModel.onEvent(Event.Ui.LoadId(profileId ?: DEFAULT_PROFILE_ID))
             }
+            logoutBtn.setOnClickListener {
+                viewModel.onEvent(Event.Ui.Logout)
+            }
         }
     }
 

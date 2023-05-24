@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-  implementation(project(':feature-authorization'))
+    implementation(project(':feature-authorization'))
     implementation(project(":core-utils"))
     implementation(project(":core-utils-android"))
     implementation(project(":core-navigation"))

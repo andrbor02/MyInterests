@@ -1,28 +1,33 @@
 package com.example.core_network.impl.retrofit.impl
 
+import com.example.core_data.impl.account.AccountPersister
+import com.example.core_data.impl.account.model.Account
 import com.example.core_network.impl.retrofit.CredentialsHolder
 import javax.inject.Inject
 
-internal class CredentialsHolderImpl @Inject constructor(): CredentialsHolder() {
-
-    private var storage: Pair<String, String> =        "" to ""
-
-    private var id = 0
+internal class CredentialsHolderImpl @Inject constructor(
+    private val accountPersister: AccountPersister,
+) : CredentialsHolder() {
 
     override fun setCredentials(userId: Int, email: String, apiKey: String) {
-        storage = email to apiKey
-        id = userId
+        accountPersister.saveUser(
+            Account(
+                userId,
+                email,
+                apiKey
+            )
+        )
     }
 
     override fun getEmail(): String {
-        return storage.first
+        return accountPersister.getUser().email
     }
 
     override fun getUserId(): Int {
-        return id
+        return accountPersister.getUser().userId
     }
 
     override fun getApiKey(): String {
-        return storage.second
+        return accountPersister.getUser().apiKey
     }
 }

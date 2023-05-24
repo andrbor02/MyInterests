@@ -23,5 +23,10 @@ internal class Reducer :
             is Event.Internal.ValueLoaded -> {
                 ScreenState.Success(event.value)
             }
+
+            Event.Ui.Logout -> {
+                sendCommandToActor(Command.Logout)
+                ScreenState.Loading
+            }
         }
 }

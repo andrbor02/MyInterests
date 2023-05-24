@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.core_network.impl.di.NetworkComponentHolder
 import com.example.core_utils.common_helpers.lazyUnsafe
 import com.example.homework_2.App
 import com.example.homework_2.R
 import com.example.homework_2.databinding.FragmentBottomNavigationBinding
-import com.example.homework_2.databinding.FragmentMainContainerBinding
 import com.example.homework_2.navigation_impl.Screens
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -18,7 +16,7 @@ import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import javax.inject.Inject
 
-class BottomNavigationFragment: Fragment() {
+class BottomNavigationFragment : Fragment() {
 
     private val binding: FragmentBottomNavigationBinding by lazyUnsafe {
         FragmentBottomNavigationBinding.inflate(layoutInflater)

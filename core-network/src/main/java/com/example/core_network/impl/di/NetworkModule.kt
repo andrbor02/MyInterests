@@ -1,8 +1,6 @@
 package com.example.core_network.impl.di
 
 
-import com.example.core_network.impl.authorization.AuthorizationChecker
-import com.example.core_network.impl.authorization.AuthorizationCheckerImpl
 import com.example.core_network.impl.retrofit.BaseUrlHolder
 import com.example.core_network.impl.retrofit.CredentialsHolder
 import com.example.core_network.impl.retrofit.NetworkClient
@@ -121,9 +119,5 @@ internal class NetworkModule {
         @Binds
         @Singleton
         fun bindCredentialsHolder(credentialsHolderImpl: CredentialsHolderImpl): CredentialsHolder
-
-        @Binds
-        @Singleton
-        fun bindAuthorizationChecker(authorizationCheckerImpl: AuthorizationCheckerImpl): AuthorizationChecker
     }
 }
