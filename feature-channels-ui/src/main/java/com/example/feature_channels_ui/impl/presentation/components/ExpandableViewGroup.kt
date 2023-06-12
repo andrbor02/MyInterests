@@ -152,7 +152,6 @@ internal class ExpandableViewGroup @JvmOverloads constructor(
 
             with(binding) {
                 topic.text = name
-                messagesCount.text = count.toString()
                 root.layoutParams = MarginLayoutParams(generateDefaultLayoutParams())
                 root.background = AppCompatResources.getDrawable(context, colorsList[index % 2])
                 root.setOnClickListener {
